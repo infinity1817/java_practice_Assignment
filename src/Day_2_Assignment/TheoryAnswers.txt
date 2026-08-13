@@ -1,0 +1,16 @@
+1. What is the difference between a process and a thread?
+
+A process is defined as a instance of an application while a thread is defined as lightweight units of execution inside process
+
+ 2 What is the difference between start() and run()?
+
+ When a start() is called it creates a new thread and call run() internally but when run() is called it calls the method run present inside the given class without crating new thread.
+
+3. What is a race condition?
+It is a condition that arrives when the execution is depend on some shared resource or on the order of execution and if it is not done properly then race condition arrives.
+
+4. What is the purpose of synchronized?
+The purpose of synchronized is to make sure that no two threads can access the same variable simultaneously ,so if a thread is processing on a value it first locks it then reads it update it and writes it and then unlock it after only it can be accessed by some other thread.
+
+5. Does volatile make count++ thread-safe? Explain why or why not.
+Yes , because volatile forces java to read the variable from main memory directly not from cache and any update in volatile memory instantly makes it visible to all other threads.
