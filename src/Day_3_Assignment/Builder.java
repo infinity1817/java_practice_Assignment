@@ -42,5 +42,7 @@ public class Builder {
     public void main(String[] args){
 
         User user = new User.Build().setAddress("abcd").setEmail("nkyy").build();
+        System.out.println(user.name);
+
     }
 }

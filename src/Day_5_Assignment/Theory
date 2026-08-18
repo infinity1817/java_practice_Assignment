@@ -1,0 +1,106 @@
+What is RSA encryption?
+RSA encryption is a technique used to send messages securely by encrypting the message by a key by the user then it sends it to the receiver the encrypted message then the user decrypts the message using specific key
+
+What are Public Key and Private Key?
+Public Key - It is used by a user to encrypt a message . It can be shared with anyone.
+Private key - It is used to decrypt a message and it cannot be shared with anyone.
+The message encrypted by a user's public key can only be decrypted by the same user's private key.
+
+Why are two keys required instead of one?
+One key is used to encrypt the message which is public key and other key is used to decrypt the message which is private key.
+Suppose you want to send a message securely of someone , so you use their public key to encrypt the message and then send it to them,
+then the user use its private key to decrypts the message and reads it .
+
+
+What is the difference between symmetric and asymmetric encryption?
+In symmetric encryption , the encryption and decryption key is same but
+in asymmetric encryption , both keys are different which makes it more secure.
+
+Mention three real-world applications of RSA.
+RSA is used to encrypt symmetric AES keys
+Digital Certificates
+Digital Signatures
+
+What is a Digital Certificate?
+A digital certificate is used to verify that the given public key actually belongs to this server , organisation.
+
+What information does a certificate contain?
+It contains
+Certificate
+│
+├── Version
+├── Serial Number
+├── Signature Algorithm
+├── Issuer
+├── Valid From
+├── Valid Until
+├── Subject
+├── Subject Public Key
+├── Subject Alternative Name
+├── Key Usage
+├── Extended Key Usage
+├── CA information
+└── CA Digital Signature
+
+What is a Certificate Authority (CA)?
+It is the third party service that creates and signs the digital certificates.
+
+Why can't anyone generate their own certificate for public trust?
+This is because all computers come with some verified root ca which they trust but if user sign its own ca and certify it , they have to install their root ca on all the computers to trust it.
+
+What is a Self-Signed Certificate?
+A self-signed certificate is signed by the same entity that created it rather than by a publicly trusted CA.
+
+What is SSL?
+It is a security protocol used to securely establish a connection between two computers , eg browsers and server.
+
+What is TLS?
+TLS (Transport Layer Security) is a cryptographic protocol that provides secure communication over a network
+
+Why is HTTPS secure?
+Because HTTPS uses TLS protocol to establish secure connection between two computers.
+
+Explain the SSL Handshake in your own words.
+SSL handshake works like that.
+
+Browser                            Server
+   Hello------------------------>
+       <------------------------- Hello
+       <------------------------- Certificate
+   Verify Certificate------------->
+   <------Key Exchange------------>
+   <------Secure Connection------->
+   <------Data Transfer----------->
+   Firstly the browser sends hello to server to lets connect ,
+   then the server sends hello to the the browser ,
+   After that the server sends digital certificate to browser,
+   then the browser verifies the certificate,
+   if certificate is verified then,
+   Key exchange occurs then connection is established ,
+   and now data transfer can happen smoothly
+
+   What happens if a website's certificate has expired?
+   The website is working fine but if we try to access the website , the browser warns us that this is not https secured,
+   as it rejects its certificate.
+
+   What are Stack Memory and Heap Memory?
+ Stack memory is the memory which is used for execution and storing local variables , such as when a method is called ,
+ an instance is created in stack memory and its variables are stored in it.
+ Heap memory is the memory where objects of classes are stored.
+
+ Where are Objects stored?
+ Objects are stored in heap memory.
+
+ Where are Local Variables stored?
+ Local variables are stored in stack memory.
+
+ What is Garbage Collection?
+ It is an automatic process where jvm finds objects which are no longer used and no longer reachable  and removes it from the memory .
+
+ What causes Memory Leaks in Java?
+ A memory leak happens when an object is no longer needed but still reachable so jvm is not able to remove it cause memory leak.
+
+
+
+
+

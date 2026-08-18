@@ -1,0 +1,92 @@
+What is HTTPS?
+HTTPS (HyperText Transfer Protocol Secure) is the secure version of HTTP, the protocol your web browser uses to communicate with websites.
+
+The main difference is that HTTPS encrypts the data sent between your browser and the website, making it much more secure.
+
+When you visit an HTTPS website:
+
+Your browser connects to the website.
+The website presents a SSL/TLS certificate to prove its identity.
+Your browser verifies the certificate.
+An encrypted connection is established.
+All data exchanged (such as passwords, credit card numbers, and messages) is encrypted.
+
+HTTPS provides three key security benefits:
+
+Encryption: Prevents others from reading the data being transmitted.
+Authentication: Helps ensure you're communicating with the legitimate website, not an imposter.
+Data integrity: Protects data from being modified while in transit.
+
+Difference between SSL and TLS.
+SSL and TLS are security protocols used to protect network communication. TLS is the successor to SSL and provides improved security, stronger cryptographic algorithms, better handshake mechanisms, and modern features such as forward secrecy. SSL 2.0 and SSL 3.0 are obsolete and should not be used. Modern HTTPS uses TLS, primarily TLS 1.2 or TLS 1.3.
+
+Handhshake Concept
+Client                         Server
+  |                              |
+  | ---- Hello ----------------> |
+  |                              |
+  | <--- Certificate ----------- |
+  |                              |
+  | <--- Key exchange ---------- |
+  |                              |
+  | ---- Key exchange ---------> |
+  |                              |
+  |      Shared secret           |
+  |             ↓                |
+  |      Session keys             |
+  |             ↓                |
+  |   Encrypted communication    |
+
+
+What is Root Certificate?
+A Root Certificate is a certificate that your operating system or browser already trusts and uses to determine whether other certificates can be trusted.
+
+             Root CA
+                |
+                | signs
+                ↓
+        Intermediate CA
+                |
+                | signs
+                ↓
+       google.com Certificate
+                |
+                ↓
+          HTTPS Website
+
+          When we install an operating system or browser, it comes with a trust store containing certificates from trusted Root CAs.
+          A Root CA certificate is generally self-signed.
+          The trust comes from the fact that the Root CA certificate is already installed in the browser/operating system's trusted root store.
+
+
+          What is a Keystore in Java?
+          It is a protected file/container used to store cryptographic keys and certificates usually protected by password
+          Need---
+          The private key must be kept secret , so instead of storing in a source code it is stored in keystore , the application loads it whenever needed.
+          It contains--
+          PrivateKeyEntry -- used by https server
+          TrustedCertificateEntry -- Contains a trusted certificate
+          SecretKeyEntry -- Contains a symmetric key entry
+
+          It is stored in formats like .jks , .p12,.pfx etc
+
+          What is TrustStore?
+          A TrustStore is a secure repository that contains trusted certificates used by a Java application to decide which servers, clients, or Certificate Authorities (CAs) it should trust.
+          A typical TrustStore contains:
+           CA certificates
+           Trusted server/client certificates
+           Public certificates
+
+                       JAVA TLS
+                          |
+                  +-------+-------+
+                  |               |
+                  ↓               ↓
+              KEYSTORE        TRUSTSTORE
+                  |               |
+                  ↓               ↓
+             Private Key     Trusted Certificates
+             Certificate            |
+                  |                 |
+                  ↓                 ↓
+            "Who am I?"       "Who do I trust?"

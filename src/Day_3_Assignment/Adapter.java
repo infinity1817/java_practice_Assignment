@@ -5,13 +5,16 @@ public class Adapter {
         void charge();
     }
 
-    public class oldCharger{
+    public class oldCharger implements Charger{
+        @Override
         public void charge(){
             System.out.println("Old Charger Needed");
         }
     }
-    public class newCharger{
+    public class newCharger  implements Charger{
+        @Override
         public void charge(){
+
             System.out.println("New Charger needed");
 
         }
@@ -25,7 +28,7 @@ public class Adapter {
         chargeAdapter(String device){
             this.device = device;
         }
-
+       @Override
        public void charge(){
             if(device.equalsIgnoreCase("new")){
                 n1.charge();
